@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				futura: ['Futura Demi', 'sans-serif']
+				futura: ['Futura', 'sans-serif']
 			}
 		}
 	},
