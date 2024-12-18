@@ -1,18 +1,15 @@
-<div class="splash">
-	<h1 class="title">The<br />Cambridge<br />Sams</h1>
+<script>
+	import { fade } from 'svelte/transition';
+</script>
+
+<div class="splash flex h-screen flex-col items-center justify-center">
+	<h1 class="title text-left text-5xl font-bold" in:fade={{ duration: 1000 }}>
+		The<br />Cambridge<br />Sams
+	</h1>
 </div>
-
-<style>
-	.title {
-		font-size: 3rem;
-		color: #333;
-		text-align: left;
-	}
-
-	.splash {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
-</style>
+<p
+	class="wip absolute bottom-[5%] w-full text-center text-2xl"
+	in:fade={{ duration: 1000, delay: 500 }}
+>
+	This site is a work in progress - please excuse the mess!
+</p>
