@@ -30,19 +30,15 @@
 </script>
 
 {#if visible}
-	<div
-		class="mx-auto my-8 flex w-10/12 flex-col md:w-1/2"
-		in:fade={{ duration: 1000 }}
-		out:fade={{ duration: 1000 }}
-	>
-		<div class="mb-8">
+	<div class="mx-auto my-8 flex w-10/12 flex-col md:w-1/2">
+		<div class="mb-8" in:fade={{ duration: 1000, delay: 0 }} out:fade={{ duration: 1000 }}>
 			<h1 class="text-4xl font-bold">About The Cambridge Sams</h1>
 			<p class="text-xl">
 				We are a non-profit grassroots organisation advancing the interests of Sams all over the
 				University of Cambridge.
 			</p>
 		</div>
-		<div class="mb-8">
+		<div class="mb-8" in:fade={{ duration: 1000, delay: 500 }} out:fade={{ duration: 1000 }}>
 			<h2 class="text-3xl font-bold">FAQ</h2>
 			<ul class="text-xl">
 				{#each faqs as item, i}
@@ -58,7 +54,7 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="mb-8">
+		<div class="mb-8" in:fade={{ duration: 1000, delay: 1000 }} out:fade={{ duration: 1000 }}>
 			<h2 class="text-3xl font-bold">Constitution</h2>
 			<p class="text-xl">
 				The constitution of The Cambridge Sams can be found <a
