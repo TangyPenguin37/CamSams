@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
-	import { faqs } from './_faqs.js';
+	import faqs from './_faqs.json';
 	import jQuery from 'jquery';
 
 	let visible = false;
