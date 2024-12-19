@@ -35,9 +35,11 @@
 			<h1 class="text-4xl font-bold">About The Cambridge Sams</h1>
 			<p class="text-xl">
 				We are a non-profit grassroots organisation advancing the interests of Sams all over the
-				University of Cambridge. View our constitution <a href="/constitution.pdf" class="underline"
-					>here</a
-				>.
+				University of Cambridge. It is true that we are a new community, but we have big ambitions.
+			</p>
+			<div class="h-4"></div>
+			<p class="text-xl">
+				View our constitution <a href="/constitution.pdf" class="underline">here</a>.
 			</p>
 		</div>
 		<div class="mb-8" in:fade={{ duration: 1000, delay: 500 }} out:fade={{ duration: 1000 }}>
@@ -48,6 +50,7 @@
 				influence is somewhat proportional to our size, and without numbers we cannot hope to
 				achieve the change and recognition we know we deserve.
 			</p>
+			<div class="h-4"></div>
 			<h3 class="text-2xl">Outreach</h3>
 			<p class="text-xl">
 				Once our membership is in triple digits, we may apply for society status and request funding
@@ -72,9 +75,5 @@
 				{/each}
 			</ul>
 		</div>
-		<!-- <div class="mb-8" in:fade={{ duration: 1000, delay: 1500 }} out:fade={{ duration: 1000 }}>
-			<h2 class="text-3xl font-bold">Constitution</h2>
-			<p class="text-xl"></p>
-		</div> -->
 	</div>
 {/if}
