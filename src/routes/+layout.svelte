@@ -55,8 +55,7 @@
 {#if visible}
 	<nav
 		class="fixed top-0 z-10 hidden w-full items-center justify-between p-4 transition-all duration-1000 md:flex"
-		class:opacity-80={page.url.pathname !== '/'}
-		class:bg-black={page.url.pathname !== '/'}
+		class:bg-[#313230]={page.url.pathname !== '/'}
 		class:text-black={page.url.pathname === '/'}
 		class:text-white={page.url.pathname !== '/'}
 	>
