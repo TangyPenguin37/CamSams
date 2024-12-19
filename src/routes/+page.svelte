@@ -21,7 +21,7 @@
 		</h1>
 	</div>
 	<div
-		class="wip absolute bottom-[5%] flex w-full justify-center text-center text-2xl"
+		class="wip absolute bottom-[5%] flex w-full justify-center text-center text-xl md:text-2xl"
 		in:fade={{ duration: 1000, delay: 1000 }}
 		out:fade={{ duration: 1000 }}
 	>
