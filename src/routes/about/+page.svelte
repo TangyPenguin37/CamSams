@@ -35,11 +35,29 @@
 			<h1 class="text-4xl font-bold">About The Cambridge Sams</h1>
 			<p class="text-xl">
 				We are a non-profit grassroots organisation advancing the interests of Sams all over the
-				University of Cambridge.
+				University of Cambridge. View our constitution <a href="/constitution.pdf" class="underline"
+					>here</a
+				>.
 			</p>
 		</div>
 		<div class="mb-8" in:fade={{ duration: 1000, delay: 500 }} out:fade={{ duration: 1000 }}>
-			<h2 class="text-3xl font-bold">FAQ</h2>
+			<h2 class="text-3xl font-bold">Our Missions</h2>
+			<h3 class="text-2xl">Growth</h3>
+			<p class="text-xl">
+				Please feel free/encouraged to invite any other Sams that you know of in Cambridge. Our
+				influence is somewhat proportional to our size, and without numbers we cannot hope to
+				achieve the change and recognition we know we deserve.
+			</p>
+			<h3 class="text-2xl">Outreach</h3>
+			<p class="text-xl">
+				Once our membership is in triple digits, we may apply for society status and request funding
+				from the university. In a few years, hopefully famous Sams will be invited to give talks,
+				and alumni Sams will be asked for further funding to cover advertising, merchandise, and
+				free formals for the Cambridge Sams.
+			</p>
+		</div>
+		<div class="mb-8" in:fade={{ duration: 1000, delay: 1000 }} out:fade={{ duration: 1000 }}>
+			<h2 class="text-3xl font-bold">FAQs</h2>
 			<ul class="text-xl">
 				{#each faqs as item, i}
 					<li class="mt-4">
@@ -54,14 +72,9 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="mb-8" in:fade={{ duration: 1000, delay: 1000 }} out:fade={{ duration: 1000 }}>
+		<!-- <div class="mb-8" in:fade={{ duration: 1000, delay: 1500 }} out:fade={{ duration: 1000 }}>
 			<h2 class="text-3xl font-bold">Constitution</h2>
-			<p class="text-xl">
-				The constitution of The Cambridge Sams can be found <a
-					href="/constitution.pdf"
-					class="underline">here</a
-				>.
-			</p>
-		</div>
+			<p class="text-xl"></p>
+		</div> -->
 	</div>
 {/if}
