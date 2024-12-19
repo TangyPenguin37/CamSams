@@ -24,6 +24,6 @@
 		in:fade={{ duration: 1000, delay: 1000 }}
 		out:fade={{ duration: 1000 }}
 	>
-		This site is a work in progress.<br class="block sm:hidden" /> Please check back later.
+		This site is a work in progress.<br class="block sm:hidden" /> Some information may be missing.
 	</p>
 {/if}
