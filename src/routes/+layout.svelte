@@ -160,7 +160,7 @@
 			<div
 				in:fade={{ duration: 200, delay: 400 }}
 				out:fade={{ duration: 200 }}
-				class="flex h-screen flex-col items-center justify-center"
+				class="flex min-h-screen flex-col items-center justify-center"
 			>
 				{#if page.url.pathname !== '/'}
 					<div class="h-16"></div>
