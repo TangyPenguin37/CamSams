@@ -35,13 +35,6 @@
 		>
 			<span class="typing text-center"></span>
 		</SvelteTypedJs>
-		<style>
-			@media (max-width: 640px) {
-				.typed-cursor {
-					display: none;
-				}
-			}
-		</style>
 	</div>
 	<a
 		href="https://www.instagram.com/_camsams_"
