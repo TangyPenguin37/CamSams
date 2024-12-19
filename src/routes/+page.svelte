@@ -79,11 +79,3 @@
 		</svg>
 	</a>
 {/if}
-
-<style>
-	.instagram-icon {
-		width: 40px;
-		height: 40px;
-		color: #e1306c;
-	}
-</style>

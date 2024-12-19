@@ -150,7 +150,6 @@
 					on:click={() => (expanded = false)}
 					in:fly={{ y: -100, duration: 550 }}>Committee</a
 				>
-				<!-- instagram -->
 				<a
 					href="https://www.instagram.com/_camsams_"
 					target="_blank"
