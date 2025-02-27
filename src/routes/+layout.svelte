@@ -36,10 +36,24 @@
 		});
 
 		updateHoverables();
+
+		const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+			navigator.userAgent
+		);
+
+		if (isMobile) {
+			document.querySelectorAll('.desktop-only').forEach((el) => {
+				el.classList.add('hidden');
+			});
+		} else {
+			document.querySelectorAll('.mobile-only').forEach((el) => {
+				el.classList.add('hidden');
+			});
+		}
 	});
 </script>
 
-<div class="cursor pointer-events-none hidden md:block">
+<div class="cursor desktop-only pointer-events-none block">
 	<div class="cursor_ball cursor_ball-big fixed left-0 top-0 z-[100] mix-blend-difference">
 		<svg height="30" width="30">
 			<circle cx="15" cy="15" r="12" stroke-width="0" class="fill-[#f7f8fa]"></circle>
