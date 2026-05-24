@@ -5,14 +5,12 @@
 	import { fade, fly } from 'svelte/transition';
 	import { gsap } from 'gsap';
 
-	let visible = false;
 	let expanded = false;
 
 	const gsapCursorGrow = () => gsap.to('.cursor_ball-big', { scale: 4, duration: 0.3 });
 	const gsapCursorShrink = () => gsap.to('.cursor_ball-big', { scale: 1, duration: 0.3 });
 
 	onMount(() => {
-		visible = true;
 		const bigBall = document.querySelector('.cursor_ball-big');
 		const smallBall = document.querySelector('.cursor_ball-small');
 
@@ -66,127 +64,109 @@
 	</div>
 </div>
 
-{#if visible}
-	<nav
-		class="fixed top-0 z-10 hidden w-full items-center justify-between p-4 transition-all duration-1000 md:flex"
-		class:bg-[#313230]={page.url.pathname !== '/'}
-		class:text-black={page.url.pathname === '/'}
-		class:text-white={page.url.pathname !== '/'}
-	>
-		<div
-			class="flex items-center text-white transition-all duration-1000"
-			class:invisible={page.url.pathname === '/'}
+<nav class="relative top-0 z-10 hidden w-full p-4 text-black transition-all duration-1000 md:flex">
+	<div class="flex items-center transition-all duration-1000">
+		<a href="/" class="text-2xl font-bold">Jebam Studios</a>
+	</div>
+
+	<div class="absolute left-1/2 flex -translate-x-1/2 transform items-center text-2xl">
+		<a
+			href="/about"
+			class="underline-animation mr-4"
+			class:underlined={page.url.pathname === '/about'}>About</a
 		>
-			<a href="/" class="text-2xl font-bold">The Cambridge Sams</a>
-		</div>
-		<div class="flex items-center text-2xl">
-			<a href="/" class="underline-animation mr-4" class:underlined={page.url.pathname === '/'}
-				>Home</a
+		<a
+			href="/work"
+			class="underline-animation mr-4"
+			class:underlined={page.url.pathname === '/work'}>Our Work</a
+		>
+	</div>
+</nav>
+
+<nav
+	class="fixed top-0 z-30 w-full p-4 text-white transition-all duration-1000 md:hidden"
+	class:bg-black={page.url.pathname !== '/'}
+>
+	<div class="z-30 flex items-center justify-between">
+		<a
+			href="/"
+			class="z-30 text-2xl font-bold transition-all duration-1000"
+			class:opacity-0={page.url.pathname === '/'}
+			on:click={() => (expanded = false)}>The Cambridge Sams</a
+		>
+		<button class="text-3xl" aria-label="Toggle navigation" on:click={() => (expanded = !expanded)}>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="h-6 w-6 transition-all duration-1000"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke={page.url.pathname === '/' ? 'black' : 'white'}
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M4 6h16M4 12h16m-7 6h7"
+				/>
+			</svg>
+		</button>
+	</div>
+	{#if expanded}
+		<div
+			class="fixed inset-0 z-20 bg-black bg-opacity-50 transition-opacity duration-200"
+			class:hidden={page.url.pathname === '/'}
+			in:fade={{ duration: 200 }}
+			out:fade={{ duration: 200 }}
+			on:click={() => (expanded = false)}
+			on:keydown={(e) => e.key === 'Enter' && (expanded = false)}
+			role="button"
+			tabindex="0"
+			aria-label="Close navigation"
+		></div>
+		<div
+			class="fixed right-0 z-30 mt-4 flex flex-col space-y-4 p-4 {page.url.pathname !== '/'
+				? 'bg-black text-white'
+				: 'text-black'} rounded-bl-lg"
+			transition:fade={{ duration: 200 }}
+		>
+			<a
+				href="/"
+				class="block text-right text-xl"
+				on:click={() => (expanded = false)}
+				in:fly={{ y: -100, duration: 250 }}>Home</a
 			>
 			<a
 				href="/about"
-				class="underline-animation mr-4"
-				class:underlined={page.url.pathname === '/about'}>About</a
-			>
-			<a
-				href="/committee"
-				class="underline-animation mr-4"
-				class:underlined={page.url.pathname === '/committee'}>Committee</a
-			>
-		</div>
-	</nav>
-
-	<nav
-		class="fixed top-0 z-30 w-full p-4 text-white transition-all duration-1000 md:hidden"
-		class:bg-black={page.url.pathname !== '/'}
-	>
-		<div class="z-30 flex items-center justify-between">
-			<a
-				href="/"
-				class="z-30 text-2xl font-bold transition-all duration-1000"
-				class:opacity-0={page.url.pathname === '/'}
-				on:click={() => (expanded = false)}>The Cambridge Sams</a
-			>
-			<button
-				class="text-3xl"
-				aria-label="Toggle navigation"
-				on:click={() => (expanded = !expanded)}
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-6 w-6 transition-all duration-1000"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke={page.url.pathname === '/' ? 'black' : 'white'}
-				>
-					<path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16m-7 6h7"
-					/>
-				</svg>
-			</button>
-		</div>
-		{#if expanded}
-			<div
-				class="fixed inset-0 z-20 bg-black bg-opacity-50 transition-opacity duration-200"
-				class:hidden={page.url.pathname === '/'}
-				in:fade={{ duration: 200 }}
-				out:fade={{ duration: 200 }}
+				class="block text-right text-xl"
 				on:click={() => (expanded = false)}
-				on:keydown={(e) => e.key === 'Enter' && (expanded = false)}
-				role="button"
-				tabindex="0"
-				aria-label="Close navigation"
-			></div>
-			<div
-				class="fixed right-0 z-30 mt-4 flex flex-col space-y-4 p-4 {page.url.pathname !== '/'
-					? 'bg-black text-white'
-					: 'text-black'} rounded-bl-lg"
-				transition:fade={{ duration: 200 }}
+				in:fly={{ y: -100, duration: 400 }}>About</a
 			>
-				<a
-					href="/"
-					class="block text-right text-xl"
-					on:click={() => (expanded = false)}
-					in:fly={{ y: -100, duration: 250 }}>Home</a
-				>
-				<a
-					href="/about"
-					class="block text-right text-xl"
-					on:click={() => (expanded = false)}
-					in:fly={{ y: -100, duration: 400 }}>About</a
-				>
-				<a
-					href="/committee"
-					class="block text-right text-xl"
-					on:click={() => (expanded = false)}
-					in:fly={{ y: -100, duration: 550 }}>Committee</a
-				>
-				<a
-					href="https://www.instagram.com/_camsams_"
-					target="_blank"
-					class="block text-right text-xl"
-					on:click={() => (expanded = false)}
-					in:fly={{ y: -100, duration: 700 }}>Instagram</a
-				>
-			</div>
-		{/if}
-	</nav>
+			<a
+				href="/work"
+				class="block text-right text-xl"
+				on:click={() => (expanded = false)}
+				in:fly={{ y: -100, duration: 550 }}>Our Work</a
+			>
+			<a
+				href="https://www.instagram.com/_camsams_"
+				target="_blank"
+				class="block text-right text-xl"
+				on:click={() => (expanded = false)}
+				in:fly={{ y: -100, duration: 700 }}>Instagram</a
+			>
+		</div>
+	{/if}
+</nav>
 
-	{#key page.url.pathname}
-		{#if visible}
-			<div
-				in:fade={{ duration: 200, delay: 400 }}
-				out:fade={{ duration: 200 }}
-				class="flex min-h-screen flex-col items-center justify-center"
-			>
-				{#if page.url.pathname !== '/'}
-					<div class="h-16"></div>
-				{/if}
-				<slot />
-			</div>
+{#key page.url.pathname}
+	<div
+		in:fade={{ duration: 200, delay: 400 }}
+		out:fade={{ duration: 200 }}
+		class="flex min-h-screen flex-col items-center justify-center"
+	>
+		{#if page.url.pathname !== '/'}
+			<div class="h-16"></div>
 		{/if}
-	{/key}
-{/if}
+		<slot />
+	</div>
+{/key}
